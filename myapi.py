@@ -83,15 +83,15 @@ def create_todo(todoList_id: int, newTodo: newTodo):
     return todoList[todoList_id]
 
 @app.put("/update-todo/{todoList_id}")
-def update_todo(todoList_id: int, app: updateTodo):
+def update_todo(todoList_id: int, newTodo: updateTodo):
     if todoList_id not in todoList:
         return{"Error": "todo doesnt exist"}
     
     if todoList.task != None:
-        todoList[todoList_id].task = app.task
+        todoList[todoList_id].task = newTodo.task
     
     if todoList.complete != None:
-        todoList[todoList_id].complete = app.complete
+        todoList[todoList_id].complete = newTodo.complete
 
     return todoList[todoList_id]
 
